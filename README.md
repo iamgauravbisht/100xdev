@@ -14,7 +14,7 @@ This repository contains the notes, topics discussed and assignment solutions fr
 - Advanced DevOps
 - Open Source Contributions (Real Companies)
 
-![image](https://github.com/iamgauravbisht/100xdev/assets/100xdevsBanner)
+![image](https://github.com/iamgauravbisht/100xdev/blob/master/assets/100xdevsBanner.png)
 
 ## Contribution
 

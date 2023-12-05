@@ -4,6 +4,11 @@
 */
 
 function isPalindrome(str) {
+  const lowercaseSTR = str.toLowerCase();
+  const reversedSTR = lowercaseSTR.split("").reverse().join("");
+  if (lowercaseSTR !== reversedSTR) {
+    return false;
+  }
   return true;
 }
 

@@ -16,6 +16,62 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+  add(number) {
+    this.result += number;
+  }
+  substract(number) {
+    this.result -= number;
+  }
+  multiply(number) {
+    this.result *= number;
+  }
+  divide(number) {
+    this.result /= number;
+  }
+  clear() {
+    this.result = 0;
+  }
+  getResult() {
+    return this.result;
+  }
+  calculate(expression) {
+    const operators = ["+", "-", "*", "/"];
+    const expressionArray = expression.split(" ");
+    const parsedExpression = expressionArray.reduce((acc, char) => {
+      if (char === "(") {
+        acc.push(char);
+      } else if (char === ")") {
+        const lastOpenParenthesisIndex = acc.lastIndexOf("(");
+        const subExpression = acc.slice(lastOpenParenthesisIndex + 1);
+        const subExpressionResult = this.calculate(subExpression.join(" "));
+        acc.splice(lastOpenParenthesisIndex);
+        acc.push(subExpressionResult);
+      } else if (operators.includes(char)) {
+        acc.push(char);
+      } else if (!isNaN(char)) {
+        acc.push(Number(char));
+      }
+      return acc;
+    }, []);
+    const result = parsedExpression.reduce((acc, char) => {
+      if (char === "+") {
+        return acc + parsedExpression[parsedExpression.indexOf(char) + 1];
+      } else if (char === "-") {
+        return acc - parsedExpression[parsedExpression.indexOf(char) + 1];
+      } else if (char === "*") {
+        return acc * parsedExpression[parsedExpression.indexOf(char) + 1];
+      } else if (char === "/") {
+        return acc / parsedExpression[parsedExpression.indexOf(char) + 1];
+      } else {
+        return acc;
+      }
+    }, parsedExpression[0]);
+    return result;
+  }
+}
 
 module.exports = Calculator;

@@ -6,7 +6,19 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const categories = new Set(
+    transactions.map((transaction) => transaction.category)
+  );
+  const output = categories.map((category) => {
+    return transactions.reduce((acc, transaction) => {
+      if (transaction.category === category) {
+        acc += transaction.price;
+      }
+      return { category: acc };
+    }, 0);
+  });
+
+  return output;
 }
 
 module.exports = calculateTotalSpentByCategory;

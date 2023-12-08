@@ -17,8 +17,23 @@ function calculateTotalSpentByCategory(transactions) {
       return { category: acc };
     }, 0);
   });
-
   return output;
+
+  // let size = transactions.length;
+  // let temp = [];
+  // for (let i = 0; i < size; i++) {
+  //   if (temp.some((trans) => trans.category === transactions[i].category)) {
+  //     let index = temp.findIndex((trans)=>trans.category==transactions[i].category);
+  //     temp[index].totalSpent = temp[index].totalSpent + transactions[i].price;
+  //   } else {
+  //     let object = {
+  //       category: transactions[i].category,
+  //       totalSpent: transactions[i].price,
+  //     };
+  //     temp.push(object);
+  //   }
+  //   return temp;
+  // }
 }
 
 module.exports = calculateTotalSpentByCategory;

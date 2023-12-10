@@ -8,3 +8,14 @@
 // ```
 // hello world my name is raman
 // ```
+const fs = require("fs");
+
+fs.readFile("a.txt", "utf-8", (err, data) => {
+  if (err) throw new Error(err);
+
+  const newData = data
+    .split(" ")
+    .filter((a) => a != "")
+    .join(" ");
+  console.log("newData : ", newData);
+});

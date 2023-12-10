@@ -6,17 +6,47 @@
  */
 
 function waitOneSecond() {
-
+  return new Promise((resolve, rejected) => {
+    setTimeout(() => {
+      console.log("waitOneSecond");
+      resolve("1");
+    }, 1000);
+  });
 }
 
 function waitTwoSecond() {
-
+  return new Promise((resolve, rejected) => {
+    setTimeout(() => {
+      console.log("waitTwoSecond");
+      resolve("2");
+    }, 2000);
+  });
 }
 
 function waitThreeSecond() {
-
+  return new Promise((resolve, rejected) => {
+    setTimeout(() => {
+      console.log("waitThreeSecond");
+      resolve("3");
+    }, 3000);
+  });
 }
 
-function calculateTime() {
+async function calculateTime() {
+  const start = new Date();
+  // these promises are running one after the other / sequentially
+  const one = await waitOneSecond();
+  const two = await waitTwoSecond();
+  const three = await waitThreeSecond();
 
+  console.log(`one : ${one} , Two : ${two},three : ${three}`);
+
+  const end = new Date();
+  console.log(
+    `start Time ${start.toLocaleTimeString()}\nend Time ${end.toLocaleTimeString()}\ntheir difference ${
+      end - start
+    }`
+  );
 }
+
+calculateTime();

@@ -16,6 +16,8 @@ This repository contains the notes, topics discussed and assignment solutions fr
 
 ![image](https://github.com/iamgauravbisht/100xdev/blob/master/assets/100xdevsBanner.png)
 
+## Notion : [Link](https://quickest-juniper-f9c.notion.site/Cohort-2-0-6b6c2a9f1282499aba4782b88bf7e204)
+
 ## Contribution
 
 Don't hesitate to raise an issue or contribute by submitting a [pull request](https://github.com/iamgauravbisht/100xdev/pulls). We welcome any suggestions or improvements that can enhance the learning experience for all cohort members. <br>
